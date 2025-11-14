@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="FinalTask Suite" parallel="tests" thread-count="2">
+    <test name="Chrome Tests">
+        <parameter name="browser" value="CHROME"/>
+        <classes>
+            <class name="com.epam.training.gergely_kerekes.tests.LoginTests"/>
+        </classes>
+    </test>
+
+    <test name="Firefox Tests">
+        <parameter name="browser" value="FIREFOX"/>
+        <classes>
+            <class name="com.epam.training.gergely_kerekes.tests.LoginTests"/>
+        </classes>
+    </test>
+</suite>
