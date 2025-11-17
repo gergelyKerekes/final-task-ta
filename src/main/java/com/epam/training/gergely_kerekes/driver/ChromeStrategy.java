@@ -6,6 +6,9 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.slf4j.Logger;
 
+/**
+ * Chrome-specific WebDriver creation strategy
+ */
 public class ChromeStrategy implements BrowserStrategy{
 
     private static final Logger logger = LoggerUtil.getLogger(ChromeStrategy.class);

@@ -6,6 +6,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.slf4j.Logger;
 
+/**
+ * Firefox-specific WebDriver creation strategy
+ */
 public class FirefoxStrategy implements BrowserStrategy {
 
     private static final Logger logger = LoggerUtil.getLogger(FirefoxStrategy.class);
