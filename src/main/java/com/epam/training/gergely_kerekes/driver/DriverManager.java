@@ -18,14 +18,14 @@ public class DriverManager {
                     (type == BrowserType.FIREFOX) ? new FirefoxStrategy() : new ChromeStrategy();
 
             DRIVER.set(strategy.createDriver());
-            logger.debug("WebDriver stored in Threadlocal for thread {}", Thread.currentThread().threadId());
+            logger.debug("WebDriver stored in Threadlocal for thread {}", Thread.currentThread().getId());
         }
         return DRIVER.get();
     }
 
     public static void quitDriver() {
         if (DRIVER.get() != null) {
-            logger.info("Quitting Webdriver for thread {}", Thread.currentThread().threadId());
+            logger.info("Quitting Webdriver for thread {}", Thread.currentThread().getId());
             DRIVER.get().quit();
             DRIVER.remove();
         } else {
