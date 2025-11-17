@@ -8,11 +8,16 @@ import org.testng.annotations.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * Login-related UI test for SauceDemo.
+ */
 public class LoginTests extends BaseTest{
 
     private static final Logger logger = LoggerUtil.getLogger(LoginTests.class);
 
-    //UC-1: Empty credentials
+    /**
+     * UC-1: Empty credentials should result in "Username is required error.
+     */
     @Test
     public void emptyCredentials() {
         logger.info("Executing test: emptyCredentials");
@@ -28,7 +33,9 @@ public class LoginTests extends BaseTest{
         assertThat(errorMsg).contains("Username is required");
     }
 
-    //UC-2: Username only, missing password
+    /**
+     * UC-2: Username only, missing password should show "Password is required".
+     */
     @Test
     public void missingPassword() {
         logger.info("Executing test: missingPassword");
@@ -43,7 +50,9 @@ public class LoginTests extends BaseTest{
         assertThat(errorMsg).contains("Password is required");
     }
 
-    //UC-3 Valid login
+    /**
+     * UC-3: Valid login should land on the inventory page with title "Swag Labs".
+     */
     @Test
     public void validLogin() {
         logger.info("Executing test: validLogin");

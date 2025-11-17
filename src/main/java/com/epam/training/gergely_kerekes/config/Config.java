@@ -7,6 +7,10 @@ import org.slf4j.Logger;
 import java.io.IOException;
 import java.util.Properties;
 
+/**
+ * Simple configuration loader for application-level properties
+ */
+
 public class Config {
 
     private static final Logger logger = LoggerUtil.getLogger(Config.class);
@@ -27,6 +31,12 @@ public class Config {
             throw new IllegalStateException("Failed to load config.properties");
         }
     }
+
+    /**
+     * Returns the base URL of the application under test
+     *
+     * @return base URL as a string
+     */
 
     public static String getBaseUrl() {
         return PROPERTIES.getProperty("base.url");

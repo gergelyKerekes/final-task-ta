@@ -4,11 +4,19 @@ import com.epam.training.gergely_kerekes.util.LoggerUtil;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 
+/**
+ * Manages the WebDriver lifecycle using ThreadLocal insatnce.
+ */
 public class DriverManager {
 
     private static final Logger logger = LoggerUtil.getLogger(DriverManager.class);
     private static final ThreadLocal<WebDriver> DRIVER = new ThreadLocal<>();
 
+    /**
+     * Returns the WebDriver for the current thread, creating one is needed.
+     *
+     * @return WebDriver insatnce for current thread
+     */
     public static WebDriver getDriver() {
         if (DRIVER.get() == null) {
             BrowserType type = BrowserType.valueOf(System.getProperty("browser", "CHROME").toUpperCase());
@@ -23,6 +31,9 @@ public class DriverManager {
         return DRIVER.get();
     }
 
+    /**
+     * Quits and removes the WebDriver for the current thread.
+     */
     public static void quitDriver() {
         if (DRIVER.get() != null) {
             logger.info("Quitting Webdriver for thread {}", Thread.currentThread().getId());
